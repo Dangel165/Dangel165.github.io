@@ -101,8 +101,7 @@
 
     whoami: function () {
       return [
-        '<span class="ok">dangel</span>  <span class="dim">— security learner &amp; developer</span>',
-        '  “만들 줄 알아야 부술 수 있고, 부숴봐야 제대로 만든다.”',
+        '<span class="ok">dangel</span>  <span class="dim">— Web · Reversing · Crypto @ APS / RubiyaLab</span>',
         '  자세히 → <a href="' + url('/about/') + '">cd about</a>'
       ].join('\n');
     },

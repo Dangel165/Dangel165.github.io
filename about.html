@@ -19,10 +19,9 @@ prompt_path: about
 </pre>
     <div>
       <h1>Dangel</h1>
-      <p class="dim" style="margin-top:0"># 만들 줄 알아야 부술 수 있고, 부숴봐야 제대로 만든다.</p>
 
       <dl class="kv">
-        <dt>name</dt><dd>Dangel <span class="dim">(본명/닉네임으로 수정)</span></dd>
+        <dt>name</dt><dd>Dangel</dd>
         <dt>role</dt><dd>Web · Reversing · Crypto</dd>
         <dt>team</dt><dd>APS / RubiyaLab</dd>
         <dt>github</dt><dd><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">github.com/{{ site.github_username }}</a></dd>
@@ -31,29 +30,4 @@ prompt_path: about
     </div>
   </div>
 
-  <h2 class="section-title">cat ~/.skills</h2>
-  {% assign skills = "Web Hacking:80,Pwnable:60,Reversing:55,Python:85,C/C++:65,JavaScript:70" | split: "," %}
-  {% for s in skills %}
-  {% assign kv = s | split: ":" %}
-  <div class="skill">
-    <span>{{ kv[0] }}</span>
-    <span class="bar"><i style="width: {{ kv[1] }}%"></i></span>
-    <span class="dim">{{ kv[1] }}%</span>
-  </div>
-  {% endfor %}
-
-  <h2 class="section-title">cat ~/.history | tail</h2>
-  <ul class="ls">
-    <li><time>2026-10</time><span class="cat">blog</span><span>GitHub Pages 터미널 블로그 오픈</span></li>
-    <li><time>2026-??</time><span class="cat">ctf</span><span>OO CTF 본선 진출 <span class="dim">(예시 — 본인 이력으로 교체)</span></span></li>
-    <li><time>2026-??</time><span class="cat">bugbounty</span><span>OO 서비스 취약점 제보 <span class="dim">(예시)</span></span></li>
-    <li><time>2026-??</time><span class="cat">contest</span><span>정보보안기사 / 공모전 수상 <span class="dim">(예시)</span></span></li>
-  </ul>
-
-  <h2 class="section-title">cat ~/.plan</h2>
-  <ul class="ls">
-    <li><span class="ok">[ ]</span><span>매주 CTF write-up 1개</span></li>
-    <li><span class="ok">[ ]</span><span>읽은 보안 논문 월 1편 리뷰</span></li>
-    <li><span class="ok">[x]</span><span>나만의 블로그 만들기</span></li>
-  </ul>
 </section>
