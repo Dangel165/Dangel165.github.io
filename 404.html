@@ -1,0 +1,11 @@
+---
+layout: default
+title: 404
+permalink: /404.html
+---
+<section>
+  <p class="cmd"><span class="ps1">$</span> cd <span id="miss"></span></p>
+  <p class="err">bash: cd: 그런 파일이나 디렉터리가 없습니다 (404)</p>
+  <p class="dim">segmentation fault (core dumped) — 농담입니다. <a href="{{ '/' | relative_url }}">cd ~</a> 로 돌아가세요.</p>
+  <script>document.getElementById('miss').textContent = location.pathname;</script>
+</section>

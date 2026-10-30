@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 150 }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0f0c'/><text x='5' y='22' font-family='monospace' font-size='16' fill='%2339ff88'>&gt;_</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=IBM+Plex+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<script>
+  /* 저장된 테마를 페인트 전에 적용 (깜빡임 방지) */
+  try { var t = localStorage.getItem('dangel-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+{% if site.plugins contains 'jekyll-seo-tag' %}{% seo title=false %}{% endif %}
+{% if site.plugins contains 'jekyll-feed' %}{% feed_meta %}{% endif %}

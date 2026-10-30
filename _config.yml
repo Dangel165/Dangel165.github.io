@@ -1,0 +1,69 @@
+# ─────────────────────────────────────────────
+#  Dangel's Terminal Blog — Jekyll config
+#  GitHub Pages가 push 시 자동으로 빌드합니다.
+# ─────────────────────────────────────────────
+title: "Dangel"
+tagline: "root@dangel:~# 보안 · 개발 · 기록"
+description: "개발, CTF, 버그바운티, 기술문서, 논문, 공모전 기록을 남기는 Dangel의 터미널 블로그"
+author: "Dangel"
+email: ""
+github_username: "Dangel165"
+
+# <아이디>.github.io 저장소면 baseurl 은 "" 그대로 둡니다.
+# 다른 이름의 저장소(예: blog)라면 baseurl: "/blog"
+url: "https://dangel165.github.io"
+baseurl: ""
+
+lang: ko
+timezone: Asia/Seoul
+permalink: /:categories/:year/:month/:day/:title/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 카테고리 정의: slug(폴더/URL) · 메뉴명 · 터미널 경로 · 설명
+blog_categories:
+  - slug: dev
+    name: "개발"
+    dir: "dev"
+    icon: "</>"
+    desc: "만들고 부수고 다시 만든 것들. 언어, 프레임워크, 사이드 프로젝트."
+  - slug: ctf
+    name: "CTF/Wargame"
+    dir: "ctf"
+    icon: "[F]"
+    desc: "pwn · web · rev · crypto · forensics 문제 풀이와 write-up."
+  - slug: bugbounty
+    name: "Bug Bounty"
+    dir: "bugbounty"
+    icon: "$$$"
+    desc: "실서비스 취약점 제보 기록. (공개 허가된 건만 게시)"
+  - slug: docs
+    name: "블로그/기술문서"
+    dir: "docs"
+    icon: "md"
+    desc: "개념 정리, 툴 사용법, 삽질 기록과 기술 문서."
+  - slug: paper
+    name: "논문/컨퍼런스"
+    dir: "paper"
+    icon: "pdf"
+    desc: "읽은 논문 리뷰와 컨퍼런스 참관/발표 후기."
+  - slug: contest
+    name: "공모전/자격증"
+    dir: "contest"
+    icon: "***"
+    desc: "공모전 참가 후기, 자격증 준비와 합격 기록."
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - tools/
+  - _site/

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<section class="home">
+<pre class="ascii" aria-label="DANGEL">
+ ____    _    _   _  ____ _____ _
+|  _ \  / \  | \ | |/ ___| ____| |
+| | | |/ _ \ |  \| | |  _|  _| | |
+| |_| / ___ \| |\  | |_| | |___| |___
+|____/_/   \_\_| \_|\____|_____|_____|
+</pre>
+  <p class="boot">
+    [ <b>OK</b> ] Mounted ~/dev ~/ctf ~/bugbounty ~/docs ~/paper ~/contest<br>
+    [ <b>OK</b> ] Started dangel-sh — {{ site.posts | size }} posts loaded<br>
+    <span class="dim">{{ site.description }}</span>
+  </p>
+
+  <p class="cmd"><span class="ps1">$</span> whoami</p>
+  <p style="margin:-6px 0 22px">
+    <span class="ok">dangel</span> — 웹·시스템 보안을 공부하며 개발하는 사람.
+    CTF에서 배우고, 버그바운티로 실전을 겪고, 그 모든 걸 여기 기록합니다.
+    <a href="{{ '/about/' | relative_url }}">more →</a>
+  </p>
+
+  <p class="cmd"><span class="ps1">$</span> ls ~</p>
+  <div class="grid">
+    {% for c in site.blog_categories %}
+    <a class="card" href="{{ '/' | append: c.dir | append: '/' | relative_url }}">
+      <span class="cc">{{ site.categories[c.slug] | size }} posts</span>
+      <span class="ci">{{ c.icon }}</span>
+      <span class="cn">{{ c.dir }}/ <span class="dim" style="font-weight:400">· {{ c.name }}</span></span>
+      <span class="cd">{{ c.desc }}</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  <p class="cmd"><span class="ps1">$</span> ls -lt ~/**/*.md | head</p>
+  <ul class="ls">
+    {% for p in site.posts limit: 8 %}
+    {% assign cs = p.categories | first %}
+    {% assign c = site.blog_categories | where: "slug", cs | first %}
+    <li>
+      <time>{{ p.date | date: "%Y-%m-%d" }}</time>
+      <span class="cat">{{ c.dir }}/</span>
+      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {% for t in p.tags limit: 3 %}<span class="tag">#{{ t }}</span>{% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p class="cmd"><span class="ps1">$</span> ./dangel-sh <span class="dim"># 직접 명령어를 입력해 보세요</span></p>
+  <div id="term"></div>
+  <p class="hint dim" style="font-size:12px">
+    <kbd>help</kbd> 명령어 목록 · <kbd>Tab</kbd> 자동완성 · <kbd>↑</kbd><kbd>↓</kbd> 히스토리 · 어느 페이지에서든 <kbd>`</kbd> 키로 터미널 열기
+  </p>
+</section>

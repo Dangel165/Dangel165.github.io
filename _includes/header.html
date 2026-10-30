@@ -1,0 +1,15 @@
+<header class="topbar">
+  <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  <a class="brand" href="{{ '/' | relative_url }}">
+    <span class="p-user">dangel</span><span class="p-at">@</span><span class="p-host">blog</span><span class="p-sep">:</span><span class="p-path">~{% if page.prompt_path %}/{{ page.prompt_path }}{% endif %}</span><span class="p-sign">$</span><span class="cursor" aria-hidden="true"></span>
+  </a>
+  <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">[≡]</button>
+  <nav class="nav" aria-label="주 메뉴">
+    <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>~/home</a>
+    {% for c in site.blog_categories %}
+    <a href="{{ '/' | append: c.dir | append: '/' | relative_url }}" {% if page.category == c.slug or page.categories contains c.slug %}class="active"{% endif %}>./{{ c.dir }}</a>
+    {% endfor %}
+    <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>whoami</a>
+    <button class="theme-btn" type="button" title="테마 변경 (theme 명령어와 동일)">◐</button>
+  </nav>
+</header>

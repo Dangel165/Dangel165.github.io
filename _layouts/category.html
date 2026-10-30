@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% assign cat = site.blog_categories | where: "slug", page.category | first %}
+{% assign posts = site.categories[page.category] %}
+<section class="category">
+  <p class="cmd"><span class="ps1">$</span> cd ~/{{ cat.dir }} &amp;&amp; ls -la</p>
+
+  <header class="cat-head">
+    <h1><span class="cat-icon">{{ cat.icon }}</span> {{ cat.name }}</h1>
+    <p class="dim"># {{ cat.desc }}</p>
+  </header>
+
+  <p class="dim">total {{ posts | size }}</p>
+  {% if posts.size > 0 %}
+  <ul class="ls">
+    {% for p in posts %}
+    <li>
+      <span class="perm">-rw-r--r--</span>
+      <span class="owner">dangel</span>
+      <time>{{ p.date | date: "%Y-%m-%d" }}</time>
+      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {% for t in p.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="warn">ls: 아직 이 디렉터리에 글이 없습니다. <code>_posts/</code>에 첫 글을 작성해 보세요.</p>
+  {% endif %}
+
+  {{ content }}
+</section>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+  <div class="shell">
+    {% include header.html %}
+    <main class="screen" id="main">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+
+  <!-- 터미널 명령어에서 쓰는 사이트 데이터 -->
+  <script>
+    window.SITE = {
+      base: {{ site.baseurl | jsonify }},
+      categories: [
+        {% for c in site.blog_categories %}{
+          slug: {{ c.slug | jsonify }}, dir: {{ c.dir | jsonify }}, name: {{ c.name | jsonify }},
+          count: {{ site.categories[c.slug] | size }}
+        }{% unless forloop.last %},{% endunless %}{% endfor %}
+      ],
+      posts: [
+        {% for p in site.posts %}{
+          title: {{ p.title | jsonify }}, url: {{ p.url | relative_url | jsonify }},
+          date: {{ p.date | date: '%Y-%m-%d' | jsonify }}, cat: {{ p.categories | first | jsonify }},
+          tags: {{ p.tags | jsonify }}
+        }{% unless forloop.last %},{% endunless %}{% endfor %}
+      ]
+    };
+  </script>
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+</body>
+</html>

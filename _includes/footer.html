@@ -1,0 +1,9 @@
+<footer class="statusbar">
+  <span class="sb-mode">NORMAL</span>
+  <span class="sb-file">{{ page.path | default: 'index.html' }}</span>
+  <span class="sb-fill"></span>
+  <span>utf-8</span>
+  <span>© {{ 'now' | date: '%Y' }} {{ site.author }}</span>
+  {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">gh:{{ site.github_username }}</a>{% endif %}
+  <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+</footer>

@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% assign cat_slug = page.categories | first %}
+{% assign cat = site.blog_categories | where: "slug", cat_slug | first %}
+<article class="post">
+  <p class="cmd"><span class="ps1">$</span> cat ./{{ cat.dir | default: 'posts' }}/{{ page.slug }}.md</p>
+
+  <header class="post-head">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <ul class="meta">
+      <li><span class="k">date</span> {{ page.date | date: "%Y-%m-%d" }}</li>
+      {% if cat %}<li><span class="k">dir</span> <a href="{{ '/' | append: cat.dir | append: '/' | relative_url }}">{{ cat.name }}</a></li>{% endif %}
+      {% if page.tags.size > 0 %}<li><span class="k">tags</span> {% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</li>{% endif %}
+      {% assign words = content | strip_html | size %}
+      <li><span class="k">read</span> ~{{ words | divided_by: 500 | plus: 1 }}min</li>
+    </ul>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&lt; prev: {{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}">next: {{ page.next.title }} &gt;</a>{% endif %}
+  </nav>
+
+  <p class="cmd"><span class="ps1">$</span> cd ..  <a href="{{ '/' | append: cat.dir | append: '/' | relative_url }}" class="dim">← 목록으로</a></p>
+</article>
