@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "지금까지의 활동 정리"
+title: "2026 보안 활동 회고"
 categories: [docs]
 tags: [retrospective, 회고]
 ---
